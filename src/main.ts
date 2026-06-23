@@ -1,4 +1,5 @@
 import './style.css';
+import { SideRays } from './SideRays';
 
 // --- Interfaces & Types ---
 
@@ -481,7 +482,22 @@ class NetworkMesh {
 
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('network-canvas') as HTMLCanvasElement;
-    if (canvas) {
-        new NetworkMesh(canvas);
+    if (canvas) new NetworkMesh(canvas);
+
+    const appContainer = document.getElementById('app');
+    if (appContainer) {
+        new SideRays(appContainer, {
+            speed: 2.5,
+            rayColor1: "#EAB308",
+            rayColor2: "#96c8ff",
+            intensity: 2,
+            spread: 2,
+            origin: "top-right",
+            tilt: 0,
+            saturation: 1.5,
+            blend: 0.75,
+            falloff: 1.6,
+            opacity: 1
+        });
     }
 });
