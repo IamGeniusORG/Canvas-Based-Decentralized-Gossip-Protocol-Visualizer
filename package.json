@@ -1,0 +1,18 @@
+{
+  "name": "gossip-protocol-visualizer",
+  "version": "1.0.0",
+  "description": "A browser-native simulation environment for visualizing ad-hoc P2P networks and decentralized state synchronization.",
+  "type": "module",
+  "author": "",
+  "license": "MIT",
+  "keywords": ["p2p", "distributed-systems", "typescript", "canvas", "gossip-protocol", "simulation"],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12"
+  }
+}

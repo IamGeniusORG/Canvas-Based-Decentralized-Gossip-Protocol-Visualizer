@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas-Based Decentralized Gossip Protocol Visualizer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="overlay" id="ui-panel">
+        <button id="panel-toggle" class="panel-toggle-btn" title="Toggle Panel">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <h1>Gossip Protocol Simulation</h1>
+        <p>A browser-native simulation environment for ad-hoc P2P networks.</p>
+        <p class="instruction">Click any isolated node to inject a message package.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">Total Nodes:</span>
+            <span id="stat-nodes" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Active Transmissions:</span>
+            <span id="stat-transmissions" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Synced Nodes:</span>
+            <span id="stat-synced" class="stat-value">0</span>
+          </div>
+          <div class="stat-item" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <span class="stat-label" style="color: #c084fc;">Time to Sync:</span>
+            <span id="stat-time" class="stat-value" style="color: #c084fc;">0.0s</span>
+          </div>
+        </div>
+        
+        <div class="controls">
+          <div class="control-group">
+            <label for="node-count">Node Count (<span id="node-count-val">80</span>)</label>
+            <input type="range" id="node-count" min="10" max="200" value="80">
+          </div>
+          <div class="control-group">
+            <label for="conn-radius">Connection Radius (<span id="conn-radius-val">180</span>px)</label>
+            <input type="range" id="conn-radius" min="50" max="400" value="180">
+          </div>
+          <div class="control-group">
+            <label for="max-peers">Max Peers per Node (<span id="max-peers-val">5</span>)</label>
+            <input type="range" id="max-peers" min="1" max="15" value="5">
+          </div>
+          <div class="control-group">
+            <label for="msg-speed">Message Speed (<span id="msg-speed-val">Fast</span>)</label>
+            <input type="range" id="msg-speed" min="1" max="10" value="4">
+          </div>
+        </div>
+
+        <button id="reset-btn" class="btn">Regenerate Mesh</button>
+      </div>
+      <canvas id="network-canvas"></canvas>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
